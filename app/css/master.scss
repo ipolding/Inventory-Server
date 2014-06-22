@@ -1,0 +1,66 @@
+$headerColor: azure;
+$mainBackgroundColor: blue;
+
+@mixin horizontally-center() 
+{margin-left: auto;
+margin-right: auto;}
+
+html {
+	height:100%;
+}
+
+header {
+	background-color: $headerColor;
+	text-align: center;
+	font-size: 60px;
+}
+
+      
+body { 
+	
+	background-color: $mainBackgroundColor;
+	@include horizontally-center;
+	
+	 }
+
+
+#middle {
+	
+	background-color: red;
+	width: 800px;
+	@include horizontally-center;
+
+}
+
+#searchBox {
+	border: solid;
+	width: 500px;
+	@include horizontally-center;
+}
+
+#searchResults {
+	border: solid 2px;
+	max-height: 100px;
+	
+	overflow-y: scroll;
+}
+
+#instructions {
+	text-align: center;
+}
+	 
+
+#map-canvas {
+	position: relative;
+	z-index: 1;
+	height: 900px;
+	width: 99%;
+	@include horizontally-center; }
+	
+	#manualMarkers {
+	position: relative;
+	z-index: 2;
+	border: solid;
+	width: 300px;
+	@include horizontally-center;
+	 }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="whsMapper">
+  <head>
+      <link rel="stylesheet" type="text/css" href="css/master.css" media="screen" />
+
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+      <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4bVZ5sd6z-swRb0Sehp6WtmnEyi_5GJY&sensor=false"></script>
+    
+      <script src="angular.js"></script>
+      <script src="js/init_map.js"></script>
+      <script src="js/app.js"></script>
+      <script src="js/controllers.js"></script>
+      <script src="js/angular-resource.js"></script>
+  </head>
+
+  <header>UNESCO World Heritage Site Explorer</header>
+<body ng-controller="MapCtrl">
+   
+    <section id="middle">
+<h3 id="instructions">Search for a World Heritage Site below:</h3>
+
+<form id="searchBox">
+Search: <input ng-model="searchTerm" >
+
+<div id="searchResults">
+Results: <div ng-show="searchTerm" ng-repeat="site in filtered = (sites | filter: searchTerm)">
+    {{site.name}}
+    <button ng-click="addMarker(site.latitude, site.longitude)">Map me</button >
+</div>
+</div>
+</form>
+    <form id="manualMarkers" ng-submit="addMarkerManually()" >
+
+<table>
+  
+  <tr>Latitude:  
+    <input required
+              name="latitude" min="-90" max="90" 
+              type="number" 
+              ng-model="latitude" >
+</tr>
+<tr>
+  Longitude:<input required 
+                name="longitude" min="-180" max="180"
+                type="number" 
+                ng-model="longitude"
+                ngMinLength 
+                style: "float: right;">
+    </tr>
+<tr>
+    <input type="submit" id="submit" value="Add Marker" />
+</tr>
+  </table>
+    </form>
+
+
+
+<div id="map-canvas">
+
+ </div>
+</section>
+  
+ 
+
+
+  </body>
+
+</html>

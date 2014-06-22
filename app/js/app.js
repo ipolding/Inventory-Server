@@ -1,0 +1,1 @@
+var whsMapper = angular.module('whsMapper', ['ngResource']);
